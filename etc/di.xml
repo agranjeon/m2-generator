@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * @author Alexandre Granjeon <alexandre.granjeon@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="agranjeon_generator_generate_entity" xsi:type="object">Agranjeon\Generator\Command\GenerateEntity</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Agranjeon\Generator\Generator\Context">
+        <arguments>
+            <argument name="generators" xsi:type="array">
+                <item name="database" xsi:type="object">Agranjeon\Generator\Generator\Database</item>
+                <item name="api" xsi:type="object">Agranjeon\Generator\Generator\Api</item>
+                <item name="block" xsi:type="object">Agranjeon\Generator\Generator\Block</item>
+                <item name="controller" xsi:type="object">Agranjeon\Generator\Generator\Controller</item>
+                <item name="model" xsi:type="object">Agranjeon\Generator\Generator\Model</item>
+                <item name="uiComponent" xsi:type="object">Agranjeon\Generator\Generator\UiComponent</item>
+                <item name="configuration" xsi:type="object">Agranjeon\Generator\Generator\Configuration</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
