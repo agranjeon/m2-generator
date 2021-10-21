@@ -58,7 +58,7 @@ class Configuration extends AbstractGenerator
      */
     protected $layoutTemplate = '<body>
     <referenceContainer name="content">
-        <uiComponent name="<lowerModuleName>_<lowerEntiyName>_<type>"/>
+        <uiComponent name="<lowerModuleName>_<lowerEntityName>_<type>"/>
     </referenceContainer>
 </body>';
     /**
@@ -437,7 +437,7 @@ class Configuration extends AbstractGenerator
         $namespace = str_replace('_', '\\', $moduleName) . '\view\adminhtml\layout';
         /** @var string $xmlBody */
         $xmlBody = str_replace(
-            ['<lowerModuleName>', '<lowerEntiyName>', '<type>'],
+            ['<lowerModuleName>', '<lowerEntityName>', '<type>'],
             [strtolower($moduleName), strtolower($entityName), 'form'],
             $this->layoutTemplate
         );
@@ -478,7 +478,7 @@ class Configuration extends AbstractGenerator
         $namespace = str_replace('_', '\\', $moduleName) . '\view\adminhtml\layout';
         /** @var string $xmlBody */
         $xmlBody = str_replace(
-            ['<lowerModuleName>', '<lowerEntiyName>', '<type>'],
+            ['<lowerModuleName>', '<lowerEntityName>', '<type>'],
             [strtolower($moduleName), strtolower($entityName), 'listing'],
             $this->layoutTemplate
         );
@@ -599,6 +599,7 @@ class Configuration extends AbstractGenerator
                 '<moduleNamespace>',
                 '<idFieldName>',
                 '<columns>',
+                '<lowerEntityName>',
             ],
             [
                 $moduleName,
@@ -607,6 +608,7 @@ class Configuration extends AbstractGenerator
                 $moduleNamespace,
                 $this->getIdFieldName(),
                 $columns,
+                strtolower($entityName),
             ],
             $this->listingComponentTemplate
         );
