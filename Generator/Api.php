@@ -223,8 +223,8 @@ use Magento\Framework\Exception\NoSuchEntityException;
             'interface ' . $repositoryName,
             $this->prefixCodeWithSpaces(
                 str_replace(
-                    ['<variableName>', '<interfaceName>'],
-                    [lcfirst($entityName), $interfaceName],
+                    ['<variableName>', '<interfaceName>', '<entityName>'],
+                    [lcfirst($entityName), $interfaceName, $entityName],
                     $this->repositoryInterfaceBodyTemplate
                 )
             ),
